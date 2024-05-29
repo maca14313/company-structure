@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Menu,Center, Card, Image, Badge, Group ,Modal,Accordion, Container, Paper, Button,Select,Input, Text, Collapse, TextInput, Title, Anchor, Notification, Alert, Textarea } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {firebaseUrl} from './firebaseUrl'
@@ -24,8 +26,16 @@ function AddNewPosition() {
   const count = useSelector((state) => state.counter.value);
   const TreeChanged = useSelector((state) => state.counter.treeChanged);
   const dispatch = useDispatch();
-  const { register, handleSubmit, watch, formState: { errors }  } = useForm();
 
+  const schema = yup.object().shape({
+    name: yup.string().required('Name is required').max(100, 'Name must be at most 100 characters'),
+    description: yup.string().required('Description is required').max(200, 'Description must be at most 200 characters'),
+    parentId: yup.string().required('You have to choose one from the list'),
+  });
+
+  const { register, handleSubmit, watch, formState: { errors }  } = useForm({
+    resolver: yupResolver(schema),
+  });
      const [treeData,setTreeData]=useState(count)
      const [newPosition,setNewPosition]=useState([])
      const [loading,setLoading] =useState(false);
