@@ -413,14 +413,14 @@ const HomePage = () => {
 
     <div className=' h-96 h-fit    ' >
     <Group justify=" " className='text-center flex justify-center  w-screen md:justify-start' mt="md" mb="xs">
-        <Text className='text-2xl text-center md:ml-10 text-blue-600 ' fw={900}>Perago`s Company Structure</Text>
+        <Text className='text-2xl text-center md:ml-10 text-blue-500 ' fw={900}>Company Structure Tree</Text>
       </Group>
     </div>
     <Card className='flex flex-col sticky items-center justify-center  items-center bg-transparent py-10 mb-8'  padding="lg"  >
       
 
       <Group justify="space-between" mt="md" mb="xs">
-        <Text className='text-2xl text-blue-600 ' fw={900}>Explore Our Structure</Text>
+        <Text className='text-2xl text-blue-600 ' fw={900}>Explore Our Company Structure</Text>
       </Group>
 
       <Text className='cl text-center  text-white    p-2 px-4 text-mm w-screen md:px-0  md:text-lg md:w-3/4 md:p1 m-7 ' size="lg" c="dimmed">
